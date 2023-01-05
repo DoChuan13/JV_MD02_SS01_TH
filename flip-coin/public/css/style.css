@@ -1,0 +1,7 @@
+button {
+    display: block;
+    margin: 0 auto;
+    background-color: aqua;
+    font-size: 20px;
+    border-radius: 8px;
+}
