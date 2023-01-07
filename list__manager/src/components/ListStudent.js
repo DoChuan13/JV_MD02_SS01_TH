@@ -2,14 +2,21 @@ import React, { Component } from 'react'
 import Student from './Student.js'
 
 class ListStudent extends Component {
-    toggleForm = (status) => {
-        this.props.controlForm(status);
+    // componentWillMount = () => {
+    //     console.log('componentWillMount');
+    // }
+    // componentWillReceiveProps = () => {
+    //     console.log('componentWillReceiveProps');
+    // }
+
+    toggleForm = (status, actionName, selectedStudent) => {
+        this.props.controlForm(status, actionName, selectedStudent);
     }
 
-    inputToForm = (status) => {
-        // console.log("Position");
-        this.props.inputToForm(status);
+    deleteInfoStudentDetail = (deletedStudent) => {
+        this.props.deleteInfoStudent(deletedStudent)
     }
+
 
     render() {
         let { listStudents } = this.props; //== students = this.props.listStudents
@@ -17,7 +24,7 @@ class ListStudent extends Component {
         // console.log(listStudents);
         let elementListStudent = listStudents.map((studentinfo, index) => {
             // console.log(studentinfo, index);
-            return <Student key={index} controlFormDetail={this.toggleForm} inputToFormDetail={this.inputToForm} studentDetailInfo={studentinfo} stt={index}></Student>
+            return <Student key={index} controlFormDetail={this.toggleForm} studentDetailInfo={studentinfo} stt={index} deleteInfoStudentDetail={this.deleteInfoStudentDetail}></Student>
         })
         return (
             <div className="card-body">
